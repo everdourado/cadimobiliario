@@ -63,6 +63,9 @@ function atualizarImoveis(id, novaSituacao) {
 
 }
 
+console.log(verImoveis())
+//teste atualizar commit
+
 
 
 
