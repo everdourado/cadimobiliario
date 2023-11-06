@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { createImovel, listImoveis } from "../services/imovel"
+import { createImovel, listImoveis, deleteImovel } from "../services/imovel"
 
 const router = Router()
 
@@ -19,8 +19,9 @@ router.post('/', async (req, res) => {
     
 })
 
-router.delete('/', (req, res) => {
-    res.send('DELETE IMOVEL')
+router.delete('/:imovelId', async (req, res) => {
+    await deleteImovel(req.params.imovelId)
+    res.send()
 })
 
 export default router

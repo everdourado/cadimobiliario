@@ -13,4 +13,8 @@ export const createImovel = async (imovel) => {
     return createdImovel
 }
 
+export const deleteImovel = async (id) => {
+    await databaseConnection()
+    await Imovel.findByIdAndDelete(id)
+}
 
