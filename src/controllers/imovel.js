@@ -10,8 +10,13 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+    try {
     const imovel = await createImovel(req.body)
     res.status(201).send(imovel)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+    
 })
 
 router.delete('/', (req, res) => {
