@@ -18,3 +18,8 @@ export const deleteImovel = async (id) => {
     await Imovel.findByIdAndDelete(id)
 }
 
+export const updateImovel = async (id, newBody) => {
+    await databaseConnection()
+    await Imovel.findByIdAndUpdate(id, newBody)
+}
+
