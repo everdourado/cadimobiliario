@@ -1,4 +1,5 @@
 const userService = require('../services/user.service.js')
+const mongoose = require("mongoose")
 
 
 //função create para user, recebe de services
@@ -46,7 +47,10 @@ const findAll = async (req, res) => {
 //função GET para id de user,, recebe de services
 const findById = async (req, res) => {
     const id = req.params.id
-
+    
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(400).send({ message: "Id inválido" })
+    }
     //o retorno em services é colocado em user
     const user = await userService.findByIdService(id)
 
