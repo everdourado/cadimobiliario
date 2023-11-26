@@ -46,14 +46,16 @@ const findAll = async (req, res) => {
 
 //função GET para id de user, recebe de services
 const findById = async (req, res) => {
-    const id = req.params.id
+    //const id = req.params.id --- vers 1
+    //const id = req.id; --- vers 2
     
     /* if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).send({ message: "Id inválido" })
     }
     */
     //o retorno em services é colocado em user
-     const user = await userService.findByIdService(id)
+     //const user = await userService.findByIdService(id)
+     const user = req.user;
 
    /*  if (!user) {
         return res.status(400).send({ message: "Usuário não encontrado" })
@@ -68,8 +70,8 @@ const update = async (req, res) => {
     if (!name && !username && !email && !password && !avatar && !background) {
         res.status(400).send({ message: "Por favor, submeta ao menos um campo para concluir alteração!"});
     }
-
-    const id = req.params.id;
+    //const id = req.params.id;
+    const {id, user} = req;
 
     /* if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({ message: "Invalid ID"});

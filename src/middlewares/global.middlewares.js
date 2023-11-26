@@ -23,6 +23,10 @@ const validUser = async (req, res, next) => {
         return res.status(400).send({ message: "Usuário não encontrado "})
     }
 
+    //requisição a ser enviada para próxima função vai conter id e user
+    req.id = id;
+    req.user = user;
+
     next()
 };
 
