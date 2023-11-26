@@ -1,5 +1,6 @@
 const userService = require('../services/user.service.js')
-const mongoose = require("mongoose")
+//mongoose não mais usado em razão da criação do middleware
+//const mongoose = require("mongoose")
 
 
 //função create para user, recebe de services
@@ -32,7 +33,6 @@ const create = async (req, res) => {
 };
 
 //Função GET para user, recebe de services
-//findAll do controller ≠ findAll de useService
 const findAll = async (req, res) => {
     const users = await userService.findAllService()
 
@@ -44,19 +44,20 @@ const findAll = async (req, res) => {
 
 };
 
-//função GET para id de user,, recebe de services
+//função GET para id de user, recebe de services
 const findById = async (req, res) => {
     const id = req.params.id
     
-    if(!mongoose.Types.ObjectId.isValid(id)){
+    /* if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).send({ message: "Id inválido" })
     }
+    */
     //o retorno em services é colocado em user
-    const user = await userService.findByIdService(id)
+     const user = await userService.findByIdService(id)
 
-    if (!user) {
+   /*  if (!user) {
         return res.status(400).send({ message: "Usuário não encontrado" })
-    }
+    } */
 
     res.send(user)
 };
@@ -70,15 +71,15 @@ const update = async (req, res) => {
 
     const id = req.params.id;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    /* if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({ message: "Invalid ID"});
-    }
+    } */
 
-    const user = await userService.findByIdService(id);
+    /* const user = await userService.findByIdService(id); */
 
-    if (!user) {
+   /*  if (!user) {
         return res.status(400).send({ message: "User not found"});
-    }
+    } */
 
     await userService.updateService(
         id,
