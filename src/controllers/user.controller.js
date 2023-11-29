@@ -6,7 +6,8 @@ const userService = require('../services/user.service.js')
 //função create para user, recebe de services
 //série de verificações feitas pela função create
 const create = async (req, res) => {
-    const { name, username, email, password, avatar, background } = req.body;
+    try {
+        const { name, username, email, password, avatar, background } = req.body;
     //para o caso de alguma das informações solicitadas não ser fornecida pelo usuário
     if (!name || !username || !email || !password || !avatar || !background) {
         res.status(400).send({ message: "Por favor, preencha todos os campos!" })
@@ -30,6 +31,9 @@ const create = async (req, res) => {
             background
         },
     });
+} catch  (err){
+    res.status(500).send({message: err.message})
+}
 };
 
 //Função GET para user, recebe de services
