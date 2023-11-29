@@ -1,4 +1,4 @@
-const userService = require('../services/user.service.js')
+import userService from "../services/user.service.js";
 //mongoose não mais usado em razão da criação do middleware
 //const mongoose = require("mongoose")
 
@@ -105,4 +105,4 @@ const update = async (req, res) => {
 };
 
 
-module.exports = { create, findAll, findById, update };
+export default { create, findAll, findById, update };

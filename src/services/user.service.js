@@ -1,5 +1,5 @@
 //acesso ao banco de dados
-const User = require("../models/User")
+import User from "../models/User.js"
 
 const create = (body) => User.create(body)
 
@@ -17,7 +17,7 @@ const updateService = (
     background
 ) => User.findOneAndUpdate({_id: id}, { name, username, email, password, avatar, background })
 
-module.exports = {
+export default {
     create,
     findAllService,
     findByIdService,
