@@ -2,11 +2,11 @@
 const userController = require('../controllers/user.controller');
 const { validId, validUser } = require("../middlewares/global.middlewares")*/
 
-import express from "express";
+import { Router } from "express";
 import userController from "../controllers/user.controller.js";
 import { validId, validUser } from "../middlewares/global.middlewares.js";
 
-const router = express.Router();
+const router = Router();
 
 //rota de post que chama no nosso controller a função create
 router.post("/", userController.create);
