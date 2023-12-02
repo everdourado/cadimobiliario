@@ -28,9 +28,10 @@ export const authMiddlewere = (req, res, next) => {
 
         //VERIFICA SE É UM TOKEN JWT, CHAVE CRIADA QUE SERVE PARA DECODIFICAR: SECRET_JWT, DECODIFICA O TOKEN
         jwt.verify(token, process.env.SECRET_JWT, (error, decoded) => {
-           if (error) {
-            return res.send(401)
-           }
+            //ESSE ERRO ACONTECEU POR N MOTIVOS
+            if (error) {
+                return res.status(401).send({ message: "Token inválido" })
+            }
 
             console.log(decoded)
         })
