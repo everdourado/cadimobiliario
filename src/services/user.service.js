@@ -1,13 +1,13 @@
 //acesso ao banco de dados
 import User from "../models/User.js"
 
-const create = (body) => User.create(body)
+const createUserService = (body) => User.create(body)
 
-const findAllService = () => User.find()
+const findAllUserService = () => User.find()
 
-const findByIdService = (id) => User.findById(id)
+const findByIdUserService = (id) => User.findById(id)
 
-const updateService = (
+const updateUserService = (
     id,
     name,
     username,
@@ -18,8 +18,8 @@ const updateService = (
 ) => User.findOneAndUpdate({_id: id}, { name, username, email, password, avatar, background })
 
 export default {
-    create,
-    findAllService,
-    findByIdService,
-    updateService,
+    createUserService,
+    findAllUserService,
+    findByIdUserService,
+    updateUserService,
 };

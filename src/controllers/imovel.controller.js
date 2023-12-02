@@ -36,7 +36,7 @@ const create = async (req, res) => {
             tipoDeNegocio,
             atualDisponibilidade,
             telefoneContato,
-            user: { _id: "6562599c533032983940b1ce"}
+            user: req.userId
         })
         res.send(201)
     } catch (err) {

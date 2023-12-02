@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import jwt from 'jsonwebtoken'
+import userService from "../services/user.service.js";
+
 
 dotenv.config();
 
@@ -27,17 +29,22 @@ export const authMiddlewere = (req, res, next) => {
         //VALIDAR O TOKEN GERADO ATRAVÉS DO JWT:
 
         //VERIFICA SE É UM TOKEN JWT, CHAVE CRIADA QUE SERVE PARA DECODIFICAR: SECRET_JWT, DECODIFICA O TOKEN
-        jwt.verify(token, process.env.SECRET_JWT, (error, decoded) => {
+        jwt.verify(token, process.env.SECRET_JWT, async (error, decoded) => {
             //ESSE ERRO ACONTECEU POR N MOTIVOS
             if (error) {
                 return res.status(401).send({ message: "Token inválido" })
             }
+            //VALIDA SE O USUÁRIO EXISTE E PEGA O ID DO DECODED E JOGA EM "req.userId"
+            const user = await userService.findByIdUserService(decoded.id);
 
-            console.log(decoded)
-        })
+            if (!user || !user.id) {
+                return res.status(401).send({ message: "Token inválido" })
+            }
 
-        next()
+            req.userId = user.id;
 
+            return next()
+        }) 
     } catch (err) {
         res.status(500).send({ message: err.message })
     }
