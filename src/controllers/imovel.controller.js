@@ -9,6 +9,18 @@ const create = async (req, res) => {
             return res.send(401);
         }
 
+        const parts = authorization.split(" ")
+
+        if (parts.length !== 2) {
+            return res.send(401);
+        }
+
+        const [schema, token] = parts;
+
+        if (schema !== "Bearer") {
+            return res.send(401);
+        }
+
         const {
             cidade,
             bairro,
