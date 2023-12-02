@@ -3,6 +3,12 @@ import { createService, findAllService } from "../services/imovel.service.js"
 const create = async (req, res) => {
 
     try {
+        const { authorization } = req.headers;
+
+        if(!authorization) {
+            return res.send(401);
+        }
+
         const {
             cidade,
             bairro,
@@ -22,7 +28,7 @@ const create = async (req, res) => {
             !tipoDeNegocio ||
             !atualDisponibilidade ||
             !telefoneContato) {
-                res.sendStatus(400).send({
+                return res.status(400).send({
                 message: "Por favor, preencha todos os campos para concluir!",
             })
         }
@@ -39,9 +45,9 @@ const create = async (req, res) => {
             user: { _id: "6562599c533032983940b1ce"}
         })
 
-        res.sendStatus(201)
+        res.send(201)
     } catch (err) {
-        res.sendStatus(500).send({ message: err.message })
+        res.status(500).send({ message: err.message })
     }
 
 }
