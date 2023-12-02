@@ -46,7 +46,20 @@ const create = async (req, res) => {
 }
 
 const findAll = async (req, res) => {
-    const imovel = await findAllService()
+    //PAGINAÇÃO
+    let { limit, offset } = req.query;
+    limit = Number(limit)
+    offset = Number(offset)
+
+    if(!limit) {
+        limit = 5;
+    };
+    //offset: de onde começa, para não repetir posts já exibidos na tela
+    if(!offset) {
+        offset = 0;
+    };
+
+    const imovel = await findAllService(offset, limit)
     if (imovel.length === 0) {
         return res.status(400).send({ message: "Não existe imóveis registrados" })
     }
