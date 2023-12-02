@@ -7,7 +7,7 @@ const create = async (req, res) => {
             cidade,
             bairro,
             rua,
-            Numero,
+            numero,
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
@@ -17,12 +17,12 @@ const create = async (req, res) => {
         if (!cidade ||
             !bairro ||
             !rua ||
-            !Numero ||
+            !numero ||
             !tipoDeImovel ||
             !tipoDeNegocio ||
             !atualDisponibilidade ||
             !telefoneContato) {
-            res.status(400).send({
+                res.sendStatus(400).send({
                 message: "Por favor, preencha todos os campos para concluir!",
             })
         }
@@ -31,23 +31,26 @@ const create = async (req, res) => {
             cidade,
             bairro,
             rua,
-            Numero,
+            numero,
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
             telefoneContato,
-            id: "objectidfake"
+            user: { _id: "6562599c533032983940b1ce"}
         })
 
-        res.send(201)
+        res.sendStatus(201)
     } catch (err) {
-        res.status(500).send({ message: err.message })
+        res.sendStatus(500).send({ message: err.message })
     }
 
 }
 
-const findAll = (req, res) => {
-    const imovel = []
+const findAll = async (req, res) => {
+    const imovel = await findAllService()
+    if (imovel.length === 0) {
+        return res.status(400).send({ message: "Não existe imóveis registrados" })
+    }
     res.send(imovel)
 }
 
