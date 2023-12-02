@@ -9,11 +9,11 @@ const ImovelSchema = new mongoose.Schema({
     tipoDeImovel: {type: String, required: true},
     tipoDeNegocio: {type: String, required: true},
     atualDisponibilidade: {type: String, required: true},
-    telefone: {type: Number, required: true},
+    telefoneContato: {type: Number, required: true},
     dataAnuncio: {type: Date, default: Date.now()},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User", require: true}
 });
 
-const Imovel = mongoose.model("Imovel", NewsSchema)
+const Imovel = mongoose.model("Imovel", ImovelSchema)
 
 export default Imovel
