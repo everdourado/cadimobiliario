@@ -44,7 +44,7 @@ const create = async (req, res) => {
 //Função GET para user, recebe de services
 const findAll = async (req, res) => {
     try {
-        const users = await userService.findAllService()
+        const users = await userService.findAllUserService()
 
         if (users.length === 0) {
             return res.status(400).send({ message: "Não existe usuários registrados" })
