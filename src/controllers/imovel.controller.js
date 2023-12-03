@@ -1,4 +1,4 @@
-import { createService, findAllService, countImovel, findByIdService, searchByCidadeService } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel, findByIdService, searchByCidadeService, byUserService } from "../services/imovel.service.js"
 
 export const create = async (req, res) => {
 
@@ -162,3 +162,30 @@ export const searchByCidade = async (req, res) => {
         res.status(500).send({ message: "Erro interno no servidor" });
     }
 };
+
+export const byUser = async (req, res) => {
+    try {
+        const id = req.userId
+        const imovel = await byUserService(id)
+
+        return res.send({
+            results: imovel.map((item) => ({
+                id: item._id,
+                cidade: item.cidade,
+                bairro: item.bairro,
+                rua: item.rua,
+                numero: item.numero,
+                tipoDeImovel: item.tipoDeImovel,
+                tipoDeNegocio: item.tipoDeNegocio,
+                atualDisponibilidade: item.atualDisponibilidade,
+                telefoneContato: item.telefoneContato,
+                name: item.user.name,
+                username: item.user.username,
+                userAvatar: item.user.avatar
+    
+            }))
+        })  
+    } catch (err) {
+        res.status(500).send({ message: "Erro interno no servidor" });
+    }
+}

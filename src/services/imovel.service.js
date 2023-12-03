@@ -16,3 +16,5 @@ export const findByIdService = (id) => Imovel.findById(id).populate("user")
 export const searchByCidadeService = (cidade) => Imovel.find({
     cidade: { $regex: `${cidade || ""}`, $options: "i" },
 }).sort({ _id: -1 }).populate("user");;
+
+export const byUserService = (id) => Imovel.find({user: id}).sort({ _id: -1 }).populate("user");
