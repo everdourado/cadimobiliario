@@ -1,4 +1,4 @@
-import { createService, findAllService, countImovel, findByIdService, searchByCidadeService, byUserService, updateService } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel, findByIdService, searchByCidadeService, byUserService, updateService, eraseService } from "../services/imovel.service.js"
 
 export const create = async (req, res) => {
 
@@ -212,7 +212,7 @@ export const update = async (req, res) => {
             !atualDisponibilidade &&
             !telefoneContato) {
             return res.status(400).send({
-                message: "Por favor, preencha ao menos um campo para concluir o update!",
+                message: "Por favor, preencha ao menos um campo para concluir a atualização!",
             })
         }
 
@@ -233,8 +233,28 @@ export const update = async (req, res) => {
             atualDisponibilidade,
             telefoneContato)
 
-            return res.send({message: "Conteúdo atualizado com sucesso!"})
+            return res.send({message: "Imóvel atualizado com sucesso!"})
     } catch (err) {
         res.status(500).send({ message: "Erro interno no servidor" });
     }
+}
+
+export const erase = async (req, res) => {
+    try {
+        
+        const {id} = req.params;
+
+        const imovel = await findByIdService(id);
+//SE A PESSOA QUE CRIOU ESSE ID É A MESMA QUE ESTÁ LOGADA
+        if(String(imovel.user._id) !== req.userId){
+            return res.status(400).send({message: "Você não pode deletar esta imóvel!"})
+        }
+
+        await eraseService(id);
+
+        return res.send({ message: "Imóvel deletado com sucesso!"})
+    } catch (err) {
+        res.status(500).send({ message: "Erro interno no servidor" });
+}
+
 }

@@ -38,3 +38,5 @@ export const updateService = (
     tipoDeNegocio,
     atualDisponibilidade,
     telefoneContato }, { rawResult: true })
+
+    export const eraseService = (id) => Imovel.findByIdAndDelete({ _id: id })
