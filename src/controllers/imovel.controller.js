@@ -1,4 +1,4 @@
-import { createService, findAllService, countImovel, findByIdService, searchByCidadeService, byUserService } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel, findByIdService, searchByCidadeService, byUserService, updateService } from "../services/imovel.service.js"
 
 export const create = async (req, res) => {
 
@@ -185,6 +185,55 @@ export const byUser = async (req, res) => {
     
             }))
         })  
+    } catch (err) {
+        res.status(500).send({ message: "Erro interno no servidor" });
+    }
+}
+
+export const update = async (req, res) => {
+    try {
+        const { 
+            cidade,
+            bairro,
+            rua,
+            numero,
+            tipoDeImovel,
+            tipoDeNegocio,
+            atualDisponibilidade,
+            telefoneContato } = req.body;
+        const {id} = req.params;
+
+        if (!cidade &&
+            !bairro &&
+            !rua &&
+            !numero &&
+            !tipoDeImovel &&
+            !tipoDeNegocio &&
+            !atualDisponibilidade &&
+            !telefoneContato) {
+            return res.status(400).send({
+                message: "Por favor, preencha ao menos um campo para concluir o update!",
+            })
+        }
+
+        const imovel = await findByIdService(id);
+
+        if(String(imovel.user._id) !== req.userId){
+            return res.status(400).send({message: "Você não pode atualizar esta postagem!"})
+        }
+
+        await updateService(
+            id, 
+            cidade,
+            bairro,
+            rua,
+            numero,
+            tipoDeImovel,
+            tipoDeNegocio,
+            atualDisponibilidade,
+            telefoneContato)
+
+            return res.send({message: "Conteúdo atualizado com sucesso!"})
     } catch (err) {
         res.status(500).send({ message: "Erro interno no servidor" });
     }

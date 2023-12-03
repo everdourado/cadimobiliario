@@ -18,3 +18,23 @@ export const searchByCidadeService = (cidade) => Imovel.find({
 }).sort({ _id: -1 }).populate("user");;
 
 export const byUserService = (id) => Imovel.find({user: id}).sort({ _id: -1 }).populate("user");
+
+export const updateService = (
+    id, 
+    cidade, 
+    bairro, 
+    rua, 
+    numero, 
+    tipoDeImovel, 
+    tipoDeNegocio, 
+    atualDisponibilidade, 
+    telefoneContato) => 
+    Imovel.findOneAndUpdate({ _id: id }, { 
+    cidade,
+    bairro,
+    rua,
+    numero,
+    tipoDeImovel,
+    tipoDeNegocio,
+    atualDisponibilidade,
+    telefoneContato }, { rawResult: true })
