@@ -9,7 +9,10 @@ const createService = (body) => Imovel.create(body);
 const findAllService = (offset, limit) => 
 Imovel.find().sort({ _id: -1 }).skip(offset).limit(limit).populate("user");
 
+const countImovel = () => Imovel.countDocuments()
+
 export {
     createService,
-    findAllService
+    findAllService,
+    countImovel
 }

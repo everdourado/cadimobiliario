@@ -1,4 +1,4 @@
-import { createService, findAllService } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel } from "../services/imovel.service.js"
 
 const create = async (req, res) => {
 
@@ -60,6 +60,12 @@ const findAll = async (req, res) => {
     };
 
     const imovel = await findAllService(offset, limit)
+    const total = await countImovel();
+    console.log(total)
+
+    const next = offset + limit
+    const nextUrl = next < total
+
     if (imovel.length === 0) {
         return res.status(400).send({ message: "Não existe imóveis registrados" })
     }
