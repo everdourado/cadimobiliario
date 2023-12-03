@@ -1,6 +1,6 @@
-import { createService, findAllService, countImovel } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel, findByIdService } from "../services/imovel.service.js"
 
-const create = async (req, res) => {
+export const create = async (req, res) => {
 
     try {
         const {
@@ -45,7 +45,7 @@ const create = async (req, res) => {
 
 }
 
-const findAll = async (req, res) => {
+export const findAll = async (req, res) => {
     //PAGINAÇÃO
     try {
         let { limit, offset } = req.query;
@@ -104,4 +104,31 @@ const findAll = async (req, res) => {
 
 }
 
-export { create, findAll };
+export const findById = async (req, res) => {
+    try {
+        //NOS MEUS PARÂMETROS VOU TER UM NOME ID, ESSE ID PRECISA SER O MESMO NOME QUE COLOQUEI EM "/:id"
+        const { id } = req.params;
+        //PROCURAR IMÓVEL: VAI EM SERVICE E TRAZ O ID CAPTURADO LÁ, E O DE SERVICE VAI NO BANCO DE DADOS FAZER A BUSCA, POR ISSO O "await"
+        const imovel = await findByIdService(id)
+
+        return res.send({
+            imovel: {
+                id: imovel._id,
+                cidade: imovel.cidade,
+                bairro: imovel.bairro,
+                rua: imovel.rua,
+                numero: imovel.numero,
+                tipoDeImovel: imovel.tipoDeImovel,
+                tipoDeNegocio: imovel.tipoDeNegocio,
+                atualDisponibilidade: imovel.atualDisponibilidade,
+                telefoneContato: imovel.telefoneContato,
+                name: imovel.user.name,
+                username: imovel.user.username,
+                userAvatar: imovel.user.avatar
+
+            }
+        })
+    } catch (err) {
+        res.status(500).send({ message: err.message })
+    }
+}
