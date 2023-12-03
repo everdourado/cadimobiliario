@@ -96,7 +96,7 @@ const update = async (req, res) => {
          return res.status(400).send({ message: "User not found"});
      } */
 
-    await userService.updateService(
+    await userService.updateUserService(
         id,
         name,
         username,
