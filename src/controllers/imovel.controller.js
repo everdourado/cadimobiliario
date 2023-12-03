@@ -1,4 +1,4 @@
-import { createService, findAllService, countImovel, findByIdService } from "../services/imovel.service.js"
+import { createService, findAllService, countImovel, findByIdService, searchByCidadeService } from "../services/imovel.service.js"
 
 export const create = async (req, res) => {
 
@@ -82,7 +82,7 @@ export const findAll = async (req, res) => {
             offset,
             total,
 
-            results: imovel.map(item => ({
+            results: imovel.map((item) => ({
                 id: item._id,
                 cidade: item.cidade,
                 bairro: item.bairro,
@@ -132,3 +132,37 @@ export const findById = async (req, res) => {
         res.status(500).send({ message: err.message })
     }
 }
+
+export const searchByCidade = async (req, res) => {
+    try {
+        const { cidade } = req.query;
+        const imovel = await searchByCidadeService(cidade);
+
+        if (!imovel || imovel.length === 0) {
+            return res.status(400).send({ message: "Não existe imóveis cadastrados nessa cidade"});
+        }
+        return res.send({
+            results: imovel.map((item) => ({
+                id: item._id,
+                cidade: item.cidade,
+                bairro: item.bairro,
+                rua: item.rua,
+                numero: item.numero,
+                tipoDeImovel: item.tipoDeImovel,
+                tipoDeNegocio: item.tipoDeNegocio,
+                atualDisponibilidade: item.atualDisponibilidade,
+                telefoneContato: item.telefoneContato,
+                name: item.user.name,
+                username: item.user.username,
+                userAvatar: item.user.avatar
+    
+            }))
+        })
+        
+
+        res.status(200).send({ results }); // Corrigir o envio da resposta
+    } catch (err) {
+        console.error(err); // Adicionar log para identificar o erro
+        res.status(500).send({ message: "Erro interno no servidor" });
+    }
+};
