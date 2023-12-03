@@ -6,10 +6,10 @@ import { authMiddlewere } from "../middlewares/auth.middleware.js";
 
 router.post("/", authMiddlewere, create);
 router.get("/", findAll);
-router.get("/search", authMiddlewere, searchByCidade);
+router.get("/search", searchByCidade);
 
 
-router.get("/:id", findById);
+router.get("/:id", authMiddlewere, findById);
 
 
 export default router;

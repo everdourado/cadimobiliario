@@ -158,11 +158,7 @@ export const searchByCidade = async (req, res) => {
     
             }))
         })
-        
-
-        res.status(200).send({ results }); // Corrigir o envio da resposta
     } catch (err) {
-        console.error(err); // Adicionar log para identificar o erro
         res.status(500).send({ message: "Erro interno no servidor" });
     }
 };
