@@ -16,18 +16,14 @@
 <p align="justify"> :pushpin: Autenticação de usuário e tempo da sessão: autenticação do tipo Bearer com Json Web Token, tempo de sessão definido para 24hrs</p>
 
 <h3 align="center">Mock de Autenticação</h3>
-
+<p align="justify">
 |função|autenticação|
 | -------- | -------- |
 |Ver anúncios|Não|
-| -------- | -------- |
 |Detalhes de autor em um anúncio|Sim|
-| -------- | -------- |
 |Buscar anúncios por cidade|Não|
-| -------- | -------- |
 |Buscar anúncios por autor|Sim|
-| -------- | -------- |
 |Atualizar anúncios|Sim|
-| -------- | -------- |
 |Deletar anúncios|Sim|
+</p>
 
