@@ -10,3 +10,8 @@
 
 <p align="justify">O sistema estará disponível para acesso na web. Na interface, o cliente verá os anúncios dos imóveis e poderá realizar a busca dos imóveis pela cidade de seu interesse. Caso o cliente seja o proprietário de algum imóvel e deseje anunciá-lo, para isso deverá se registrar no sistema, preenchendo os campos solicitados e então realizar o login. Assim ele poderá criar o anúncio. A senha escolhida pelo cliente será criptografada para sua maior segurança. Após criar o anúncio, o cliente poderá editar informações posteriormente ou até deletá-lo.</p>
 
+<h3 align="center">Detalhes Técnicos Adicionais do Sistema</h3>
+
+<p align="justify"> :pushpin: Criptografia das senhas dos usuários: feita com o método de criptografia bcrypt </p>
+<p align="justify"> :pushpin: Autenticação de usuário e tempo da sessão: autenticação do tipo Bearer com Json Web Token, tempo de sessão definido para 24hrs</p> 
+
