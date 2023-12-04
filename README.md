@@ -17,7 +17,7 @@
 
 <h3 align="center">Mock de Autenticação</h3>
 
-<p align="justify">|função|autenticação|
+|função|autenticação|
 | -------- | -------- |
 |Ver anúncios|Não|
 | -------- | -------- |
@@ -29,5 +29,5 @@
 | -------- | -------- |
 |Atualizar anúncios|Sim|
 | -------- | -------- |
-|Deletar anúncios|Sim|</p>
+|Deletar anúncios|Sim|
 
