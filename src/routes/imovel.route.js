@@ -10,8 +10,6 @@ router.get("/search", searchByCidade);
 router.get("/byUser", authMiddlewere, byUser)
 router.patch("/:id", authMiddlewere, update)
 router.delete("/:id", authMiddlewere, erase)
-
-
 router.get("/:id", authMiddlewere, findById);
 
 
