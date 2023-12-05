@@ -466,7 +466,7 @@
     },
     "/imovel/byUser": {
       "get": {
-        "summary": "Buscar anúncios por id do usuário",
+        "summary": "Listar anúncios do usuário logado",
         "description": "Rota responsável por buscar anúncios do usuário logado",
         "tags": ["Imovel"],
         "security": [{ "bearerAuth": [] }],
@@ -517,9 +517,14 @@
               "examples": {
                 "Post": {
                   "value": {
-                    "banner": "",
-                    "title": "",
-                    "text": ""
+                    "cidade": "Guanambi",
+                    "bairro": "Novo Horizonte",
+                    "rua": "Rua Canadá",
+                    "numero": "69",
+                    "tipoDeImovel": "Casa",
+                    "tipoDeNegocio": "Venda",
+                    "atualDisponibilidade": "Indisponível",
+                    "telefoneContato": "74988525555"
                   }
                 }
               }
