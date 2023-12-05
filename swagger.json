@@ -9,7 +9,10 @@
     "version": "1.0.0"
   },
   "servers": [
-   
+    {
+      "url": "https://anuncios-imoveis.onrender.com",
+      "description": "Render Server"
+    },
     {
       "url": "http://localhost:3000",
       "description": "Local Server"
