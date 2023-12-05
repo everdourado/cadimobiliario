@@ -20,9 +20,46 @@
 |função|autenticação|
 | -------- | -------- |
 |Ver anúncios|Não|
-|Detalhes de autor em um anúncio|Sim|
-|Buscar anúncios por cidade|Não|
-|Buscar anúncios por autor|Sim|
-|Atualizar anúncios|Sim|
-|Deletar anúncios|Sim|
+|Criar Novo Usuário|Não|
+|Ver Todos os Usuários|Não|
+|Buscar Usuário Por ID|Não|
+|Editar Usuário|Sim|
+|Login|Nao|
+|Criar Anúncio de Imóvel|Sim|
+|Buscar Todos os Imóveis|Não|
+|Buscar Anúncios por Cidade|Não|
+|Buscar Anúncio por ID|Sim|
+|Deletar Um Anúncio|Sim|
+|Anúncios por Usuário|Sim|
+|Editar Anúncio|Sim|
+
+<h4 align="center">Requisitos do Projeto</h4>
+
+### Entidades com Relacionamento
+
+- [ ] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
+- [ ] Implementar operações CRUD para ambas as entidades.
+
+### Autenticação e Autorização:
+
+- [X] Implementação das rotas de registro do usuário, login e logout para autenticação.
+:pushpin: não há rota para logout
+- [ ] Dois perfis de usuários: Administrador e Usuário comum.
+- [ ] O administrador pode listar, editar e excluir usuários.
+- [X] Implementar operações CRUD de usuários.
+- [X] Criptografar as senhas dos usuários.
+
+Funcionalidades:
+
+- [X] Paginação e busca nas listagens de entidades.
+- [X] Autenticação JWT para segurança das rotas.
+- [ ] Middleware para controle de acesso baseado no perfil do usuário.
+
+
+
+
+
+
+
+
 
