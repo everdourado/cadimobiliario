@@ -39,16 +39,17 @@
 
 - [ ] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
       
-:pushpin: só há uma entidade: imóvel
+:pushpin: Só há uma entidade: imóvel
 
 - [ ] Implementar operações CRUD para ambas as entidades.
-:pushpin: operações CRUD implementadas para a entidade Imóvel
+      
+:pushpin: Operações CRUD implementadas para a entidade Imóvel
 
 ### Autenticação e Autorização:
 
 - [X] Implementação das rotas de registro do usuário, login e logout para autenticação.
       
-:pushpin: não há rota para logout
+:pushpin: Não há rota para logout
 
 - [ ] Dois perfis de usuários: Administrador e Usuário comum.
 - [ ] O administrador pode listar, editar e excluir usuários.
@@ -61,7 +62,7 @@
 - [X] Autenticação JWT para segurança das rotas.
 - [ ] Middleware para controle de acesso baseado no perfil do usuário.
       
-:pushpin: foi criado middleware para validar o autor do anúncio para fins de update 
+:pushpin: Foi criado middleware para validar o autor do anúncio para fins de update 
 
 
 
