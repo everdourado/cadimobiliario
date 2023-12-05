@@ -53,7 +53,10 @@
 
 - [ ] Dois perfis de usuários: Administrador e Usuário comum.
 - [ ] O administrador pode listar, editar e excluir usuários.
-- [X] Implementar operações CRUD de usuários.
+- [ ] Implementar operações CRUD de usuários.
+
+:pushpin: Há as funções criar, editar e ler usuários, mas a função deletar usuário não foi implementada
+
 - [X] Criptografar as senhas dos usuários.
 
 ### Funcionalidades:
