@@ -38,7 +38,9 @@
 ### Entidades com Relacionamento
 
 - [ ] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
+:pushpin: só há uma entidade: imóvel
 - [ ] Implementar operações CRUD para ambas as entidades.
+:pushpin: operações CRUD implementadas para a entidade Imóvel
 
 ### Autenticação e Autorização:
 
@@ -54,9 +56,7 @@
 - [X] Paginação e busca nas listagens de entidades.
 - [X] Autenticação JWT para segurança das rotas.
 - [ ] Middleware para controle de acesso baseado no perfil do usuário.
-
-
-
+:pushpin: foi criado middleware para validar o autor do anúncio para fins de update 
 
 
 
