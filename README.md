@@ -1,6 +1,6 @@
 <h1 align="center"> API Anúncio de Imóveis </h1>
 
-<h2 align="justify"> Projeto desenvolvido para as UC's "Sistemas Distribuídos e Mobile" e "Usabilidade, Desenvolvimento Web, Mobile e Jogos" do 3º semestre do curso Análise e Desenvolvimento de Sistemas da UNIFG. </h2>
+<h2 align="justify"> Projeto desenvolvido para a UC Sistemas Distribuídos e Mobile do 3º semestre do curso Análise e Desenvolvimento de Sistemas da UNIFG. </h2>
 
 <h3 align="center"> Descrição do Projeto </h3>
 <p align="justify"> Projeto de desenvolvimento de uma API de Anúncio de Imóveis, que faz uso das tecnologias Node.js, React, Express.js, MongoDB e Swagger, com um sistema CRUD (Create, Read, Update, Delete) com autenticação e autorização, paginação e busca.</p>
