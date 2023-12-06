@@ -37,13 +37,13 @@
 
 ### Entidades com Relacionamento
 
-- [ ] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
+- [X] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
       
-:pushpin: Só há uma entidade: imóvel
+:pushpin: Entidades: imóvel e usuário-proprietário
 
-- [ ] Implementar operações CRUD para ambas as entidades.
+- [X] Implementar operações CRUD para ambas as entidades.
       
-:pushpin: Operações CRUD implementadas para a entidade Imóvel
+:pushpin: Operações CRUD implementadas para a entidade Imóvel, para a entidade Usuário-proprietário faltou delete
 
 ### Autenticação e Autorização:
 
