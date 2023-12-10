@@ -466,7 +466,7 @@
     },
     "/imovel/byUser": {
       "get": {
-        "summary": "Buscar anúncios por id do usuário",
+        "summary": "Buscar anúncios do usuário logado",
         "description": "Rota responsável por buscar anúncios do usuário logado",
         "tags": ["Imovel"],
         "security": [{ "bearerAuth": [] }],

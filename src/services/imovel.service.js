@@ -7,7 +7,7 @@ export const createService = (body) => Imovel.create(body);
 //.skip(offset): para não mostrar intens já listados
 //.populate("user"): traz infos do user no item
 export const findAllService = (offset, limit) => 
-Imovel.find().skip(offset).limit(limit)
+Imovel.find().sort({ _id: -1 }).skip(offset).limit(limit).populate("user");
 
 export const countImovel = () => Imovel.countDocuments()
 

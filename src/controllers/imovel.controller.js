@@ -91,10 +91,7 @@ export const findAll = async (req, res) => {
                 tipoDeImovel: item.tipoDeImovel,
                 tipoDeNegocio: item.tipoDeNegocio,
                 atualDisponibilidade: item.atualDisponibilidade,
-                telefoneContato: item.telefoneContato,
-                name: item.user.name,
-                username: item.user.username,
-                userAvatar: item.user.avatar
+                telefoneContato: item.telefoneContato
 
             }))
         })
@@ -108,7 +105,7 @@ export const findById = async (req, res) => {
     try {
         //NOS MEUS PARÂMETROS VOU TER UM NOME ID, ESSE ID PRECISA SER O MESMO NOME QUE COLOQUEI EM "/:id"
         const { id } = req.params;
-        //PROCURAR IMÓVEL: VAI EM SERVICE E TRAZ O ID CAPTURADO LÁ, E O DE SERVICE VAI NO BANCO DE DADOS FAZER A BUSCA, POR ISSO O "await"
+        //PROCURAR IMÓVEL: VAI EM SERVICE E TRAZ O ID CAPTURADO NELE, E O DE SERVICE VAI NO BANCO DE DADOS FAZER A BUSCA, POR ISSO O "await"
         const imovel = await findByIdService(id)
 
         return res.send({
@@ -142,7 +139,7 @@ export const searchByCidade = async (req, res) => {
             return res.status(400).send({ message: "Não existe imóveis cadastrados nessa cidade"});
         }
         return res.send({
-            results: imovel.map((item) => ({
+            results: imovel.map((item => ({
                 id: item._id,
                 cidade: item.cidade,
                 bairro: item.bairro,
@@ -151,14 +148,13 @@ export const searchByCidade = async (req, res) => {
                 tipoDeImovel: item.tipoDeImovel,
                 tipoDeNegocio: item.tipoDeNegocio,
                 atualDisponibilidade: item.atualDisponibilidade,
-                telefoneContato: item.telefoneContato,
-                name: item.user.name,
-                username: item.user.username,
-                userAvatar: item.user.avatar
-    
-            }))
+                telefoneContato: item.telefoneContato
+            })))
         })
+
+    //res.status(200).send({ results });
     } catch (err) {
+        //console.error(err)
         res.status(500).send({ message: "Erro interno no servidor" });
     }
 };
