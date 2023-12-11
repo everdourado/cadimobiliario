@@ -81,6 +81,9 @@
           "telefoneContato": {
             "type": "string"
           },
+          "imagemImovel": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date"
@@ -104,9 +107,9 @@
               "examples": {
                 "Users": {
                   "value": {
-                    "name": "Cacau Lima",
-                    "username": "cacode",
-                    "email": "clima@gmail.com",
+                    "name": "Everton Dourado Mendes",
+                    "username": "edm",
+                    "email": "edm@gmail.com",
                     "password": "12345",
                     "avatar": "https://i.imgur.com/Ry1cb5M.png",
                     "background": "https://images.wallpapersden.com/image/download/triangle-8k-blue-pattern_bGZlbmiUmZqaraWkpJRmbmdlrWZlbWU.jpg"
@@ -305,7 +308,8 @@
                     "tipoDeImovel": "Casa",
                     "tipoDeNegocio": "Venda",
                     "atualDisponibilidade": "Indisponível",
-                    "telefoneContato": "74988525555"
+                    "telefoneContato": "74988525555",
+                    "imagemImovel": "https://pt.m.wikipedia.org/wiki/Ficheiro:Casa_Amarela.jpg"
                   }
                 }
               }
@@ -467,7 +471,6 @@
     "/imovel/byUser": {
       "get": {
         "summary": "Buscar anúncios do usuário logado",
-        "summary": "Listar anúncios do usuário logado",
         "description": "Rota responsável por buscar anúncios do usuário logado",
         "tags": ["Imovel"],
         "security": [{ "bearerAuth": [] }],
@@ -525,7 +528,8 @@
                     "tipoDeImovel": "Casa",
                     "tipoDeNegocio": "Venda",
                     "atualDisponibilidade": "Indisponível",
-                    "telefoneContato": "74988525555"
+                    "telefoneContato": "74988525555",
+                    "imagemImovel": "https://pt.m.wikipedia.org/wiki/Ficheiro:Casa_Amarela.jpg"
                   }
                 }
               }
