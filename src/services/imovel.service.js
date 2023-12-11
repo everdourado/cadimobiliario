@@ -28,7 +28,8 @@ export const updateService = (
     tipoDeImovel, 
     tipoDeNegocio, 
     atualDisponibilidade, 
-    telefoneContato) => 
+    telefoneContato,
+    imagemImovel) => 
     Imovel.findOneAndUpdate({ _id: id }, { 
     cidade,
     bairro,
@@ -37,6 +38,7 @@ export const updateService = (
     tipoDeImovel,
     tipoDeNegocio,
     atualDisponibilidade,
-    telefoneContato }, { rawResult: true })
+    telefoneContato, 
+    imagemImovel }, { rawResult: true })
 
     export const eraseService = (id) => Imovel.findByIdAndDelete({ _id: id })

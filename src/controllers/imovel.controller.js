@@ -11,7 +11,8 @@ export const create = async (req, res) => {
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
-            telefoneContato
+            telefoneContato,
+            imagemImovel
         } = req.body;
 
         if (!cidade ||
@@ -21,7 +22,8 @@ export const create = async (req, res) => {
             !tipoDeImovel ||
             !tipoDeNegocio ||
             !atualDisponibilidade ||
-            !telefoneContato) {
+            !telefoneContato || 
+            !imagemImovel) {
             return res.status(400).send({
                 message: "Por favor, preencha todos os campos para concluir!",
             })
@@ -35,7 +37,8 @@ export const create = async (req, res) => {
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
-            telefoneContato,
+            telefoneContato, 
+            imagemImovel,
             user: req.userId
         })
         res.send(201)
@@ -91,8 +94,9 @@ export const findAll = async (req, res) => {
                 tipoDeImovel: item.tipoDeImovel,
                 tipoDeNegocio: item.tipoDeNegocio,
                 atualDisponibilidade: item.atualDisponibilidade,
-                telefoneContato: item.telefoneContato
-
+                telefoneContato: item.telefoneContato,
+                imagemImovel: item.imagemImovel,
+                dataAnuncio: item.dataAnuncio
             }))
         })
     } catch (err) {
@@ -119,6 +123,8 @@ export const findById = async (req, res) => {
                 tipoDeNegocio: imovel.tipoDeNegocio,
                 atualDisponibilidade: imovel.atualDisponibilidade,
                 telefoneContato: imovel.telefoneContato,
+                imagemImovel: imovel.imagemImovel,
+                dataAnuncio: imovel.dataAnuncio,
                 name: imovel.user.name,
                 username: imovel.user.username,
                 userAvatar: imovel.user.avatar
@@ -148,7 +154,9 @@ export const searchByCidade = async (req, res) => {
                 tipoDeImovel: item.tipoDeImovel,
                 tipoDeNegocio: item.tipoDeNegocio,
                 atualDisponibilidade: item.atualDisponibilidade,
-                telefoneContato: item.telefoneContato
+                telefoneContato: item.telefoneContato,
+                imagemImovel: item.imagemImovel,
+                dataAnuncio: item.dataAnuncio
             })))
         })
 
@@ -196,7 +204,8 @@ export const update = async (req, res) => {
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
-            telefoneContato } = req.body;
+            telefoneContato,
+            imagemImovel } = req.body;
         const {id} = req.params;
 
         if (!cidade &&
@@ -206,7 +215,8 @@ export const update = async (req, res) => {
             !tipoDeImovel &&
             !tipoDeNegocio &&
             !atualDisponibilidade &&
-            !telefoneContato) {
+            !telefoneContato && 
+            !imagemImovel) {
             return res.status(400).send({
                 message: "Por favor, preencha ao menos um campo para concluir a atualização!",
             })
@@ -227,7 +237,8 @@ export const update = async (req, res) => {
             tipoDeImovel,
             tipoDeNegocio,
             atualDisponibilidade,
-            telefoneContato)
+            telefoneContato, 
+            imagemImovel)
 
             return res.send({message: "Imóvel atualizado com sucesso!"})
     } catch (err) {

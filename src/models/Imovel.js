@@ -10,6 +10,7 @@ const ImovelSchema = new mongoose.Schema({
     tipoDeNegocio: {type: String, required: true},
     atualDisponibilidade: {type: String, required: true},
     telefoneContato: {type: Number, required: true},
+    imagemImovel: {type: String, required: true},
     dataAnuncio: {type: Date, default: Date.now()},
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User", require: true}
 });
