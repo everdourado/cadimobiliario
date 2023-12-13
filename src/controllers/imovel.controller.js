@@ -74,9 +74,9 @@ export const findAll = async (req, res) => {
         const previous = offset - limit < 0 ? null : offset - limit;
         const previousUrl = previous != null ? `${currentUrl}?limit=${limit}&offset=${previous}` : null;
 
-        if (imovel.length === 0) {
-            return res.status(400).send({ message: "Não existe imóveis registrados" })
-        }
+        // if (imovel.length === 0) {
+        //     return res.status(400).send({ message: "Não existe imóveis registrados" })
+        // }
         //ENVIAR PARA O CLIENTE PARA MANIPULAÇÃO NO FRONTEND
         res.send({
             nextUrl,
