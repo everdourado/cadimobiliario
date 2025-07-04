@@ -1,6 +1,6 @@
 <h1 align="center"> API Anúncio de Imóveis </h1>
 
-<h2 align="justify"> Projeto desenvolvido para a UC Sistemas Distribuídos e Mobile do 3º semestre do curso Análise e Desenvolvimento de Sistemas da UNIFG. </h2>
+<h2 align="justify"> Projeto desenvolvido para a disciplina "Imersão Profissional: Implementação de uma Aplicação" do último semestre do curso de Análise e Desenvolvimento de Sistemas da UNIASSELVI. </h2>
 
 <h2 align="center"> Descrição do Projeto </h2>
 <p align="justify"> Projeto de desenvolvimento de uma API de Anúncio de Imóveis, que faz uso das tecnologias Node.js, React, Express.js, MongoDB e Swagger, com um sistema CRUD (Create, Read, Update, Delete) com autenticação e autorização, paginação e busca.</p>
@@ -33,27 +33,13 @@
 |Anúncios por Usuário|Sim|
 |Editar Anúncio|Sim|
 
-<h2 align="center">Requisitos do Projeto</h2>
-
-### Entidades com Relacionamento
-
-- [ ] Deve haver pelo menos duas entidades com um relacionamento claro entre elas (por exemplo, Livros e Autores, Produtos e Categorias, Cursos e Instrutores, etc.).
-
-- [ ] Implementar operações CRUD para ambas as entidades.
-      
-:pushpin: Operações CRUD implementadas para a entidade Imóvel, para Usuário-proprietário faltou delete
+<h2 align="center">Detalhes do Projeto</h2>
 
 ### Autenticação e Autorização:
 
-- [X] Implementação das rotas de registro do usuário, login e logout para autenticação.
-      
-:pushpin: Não há rota para logout
+- [X] Implementação das rotas de registro do usuário e login para autenticação.
 
-- [ ] Dois perfis de usuários: Administrador e Usuário comum.
-- [ ] O administrador pode listar, editar e excluir usuários.
-- [ ] Implementar operações CRUD de usuários.
-
-:pushpin: Há as funções criar, editar e ler usuários, mas a função deletar usuário não foi implementada
+- [X]  Funções criar, editar e ler usuários
 
 - [X] Criptografar as senhas dos usuários.
 
@@ -61,9 +47,7 @@
 
 - [X] Paginação e busca nas listagens de entidades.
 - [X] Autenticação JWT para segurança das rotas.
-- [ ] Middleware para controle de acesso baseado no perfil do usuário.
-      
-:pushpin: Foi criado middleware para validar o autor do anúncio para fins de update 
+- [X] Middleware para validar o autor do anúncio para fins de update.
 
 
 
